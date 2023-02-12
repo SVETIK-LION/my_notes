@@ -1,5 +1,5 @@
-from notes import add_note, remove_note, find_notes_on_date, push_notes_db, pull_notes_db, notes_list
-from ui.inputs import input_id, input_date, input_notes
+from notes import add_note, remove_note, find_notes_on_date, push_notes_db, pull_notes_db, notes_list, change_note
+from ui.inputs import input_id, input_date, input_note
 from ui.inputs import read_menu_number
 from ui.view import (
     MENU_EXIT,
@@ -10,7 +10,7 @@ from ui.view import (
     MENU_ADD_NOTE,
     MENU_FIND_NOTES_ON_DATE,
     show_notes,
-    show_menu, show_list)
+    show_menu, show_list, MENU_CHANGE_NOTE)
 
 
 def run():
@@ -23,7 +23,7 @@ def run():
         menu_number = read_menu_number()
 
         if menu_number == MENU_ADD_NOTE:
-            note = input_notes()
+            note = input_note()
             add_note(note)
 
         elif menu_number == MENU_VIEW_ALL_NOTES:
@@ -32,6 +32,10 @@ def run():
         elif menu_number == MENU_FIND_NOTES_ON_DATE:
             date = input_date()
             show_list(find_notes_on_date(date))
+
+        elif menu_number == MENU_CHANGE_NOTE:
+            note_id = input_id()
+            change_note(note_id)
 
         elif menu_number == MENU_REMOVE_NOTE:
             note_id = input_id()

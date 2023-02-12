@@ -1,7 +1,7 @@
 from ui.view import MENU_ITEMS
 
 
-def read_menu_number():
+def read_menu_number() -> int:
     """
     Запрашивает у пользователя пункт меню
     """
@@ -20,20 +20,23 @@ def read_menu_number():
     return menu_number
 
 
-def input_notes():
+def input_note() -> dict[str, str]:
+    """
+    Запрашивает заголовок и текст заметки
+    """
     title = input('Заголовок заметки: ')
     body = input('Введите текст заметки: ')
 
     return {'id': '', 'title': title, 'body': body, 'updated_at': ''}
 
 
-def input_date():
+def input_date() -> str:
     date = input('Введите дату заметки (дд.мм.гггг): ')
 
     return date
 
 
-def input_id():
+def input_id() -> int:
     note_id = int(input('Введите id заметки: '))
 
     return note_id
